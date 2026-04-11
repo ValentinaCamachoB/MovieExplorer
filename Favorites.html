@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Favoritos</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="scripts/Favorites.js" type="module"></script>>
 </head>
+
 <body>
-    
+
+    <nav class="navbar">
+        <a href="index.html" class="logo"> MovieExplorer</a>
+        <div class="enlaces-nav">
+            <a href="index.html">Inicio</a>
+            <a href="Favorites.html" class="activo"> Favoritos</a>
+        </div>
+    </nav>
+
+
+    <main class="contenedor">
+        <h2 class="titulo-seccion">❤ Mis Favoritos</h2>
+
+
+        <div id="mensajeListaVacia" class="mensaje-lista-vacia oculto">
+            <p> Aún no tienes series favoritas guardadas.</p>
+            <a href="index.html" class="boton-primario">Explorar series</a>
+        </div>
+
+
+        <div id="contenedorFavoritos" class="grilla-series"></div>
+    </main>
+
+
+    <footer class="pie-pagina">
+        <p> Usando la API de TVMaze</p>
+    </footer>
+
 </body>
+
 </html>
