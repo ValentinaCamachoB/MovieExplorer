@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
 
 :root {
-    --bg-deep:    #0b1120;
-    --bg-card:    #111c35;
+    --bg-deep: #0b1120;
+    --bg-card: #111c35;
     --bg-surface: #1a2747;
-    --blue-main:  #2563eb;
-    --blue-mid:   #3b82f6;
+    --blue-main: #2563eb;
+    --blue-mid: #3b82f6;
     --blue-light: #60a5fa;
-    --cyan:       #38bdf8;
-    --gold:       #f59e0b;
-    --text-main:  #e2e8f0;
+    --cyan: #38bdf8;
+    --gold: #f59e0b;
+    --text-main: #e2e8f0;
     --text-muted: #94a3b8;
-    --border:     rgba(56, 189, 248, 0.18);
+    --border: rgba(56, 189, 248, 0.18);
 }
 
 * {
@@ -28,4 +28,153 @@ body {
     padding: 1rem;
     background-image:
         radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
+}
+
+.navbar {
+    background: rgba(17, 28, 53, 0.96);
+    backdrop-filter: blur(20px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 4px 30px rgba(37, 99, 235, 0.15);
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--cyan);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo::before {
+    content: "▶ ";
+    color: var(--blue-mid);
+}
+
+.enlaces-nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    margin-left: 0.8rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    font-size: 0.95rem;
+}
+
+.enlaces-nav a:hover,
+.enlaces-nav a.activo {
+    background: var(--blue-main);
+    color: white;
+    border-color: var(--blue-mid);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+}
+
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #1e40af 100%);
+    margin: 2rem 0;
+    border-radius: 25px;
+    box-shadow: 0 25px 60px rgba(37, 99, 235, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.titulo-hero {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    letter-spacing: -1px;
+}
+
+.titulo-hero span {
+    color: var(--cyan);
+}
+
+.caja-busqueda {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1rem;
+    border-radius: 50px;
+    backdrop-filter: blur(15px);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+}
+
+#campoBusqueda {
+    flex: 1;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    outline: none;
+    color: #0b1120;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#botonBuscar {
+    padding: 0.9rem 1.8rem;
+    background: linear-gradient(45deg, var(--cyan), var(--blue-mid));
+    color: #0b1120;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+#botonBuscar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.45);
+}
+
+
+.boton-volver-inicio {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.7rem 1.8rem;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.boton-volver-inicio:hover {
+    background: rgba(56, 189, 248, 0.25);
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: scale(1.04);
 }
