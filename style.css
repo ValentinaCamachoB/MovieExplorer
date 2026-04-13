@@ -265,7 +265,6 @@ body {
     font-family: 'DM Sans', sans-serif;
 }
 
-/* Ver detalles */
 .boton-detalle {
     background: rgba(37, 99, 235, 0.25) !important;
     color: var(--blue-light) !important;
@@ -280,7 +279,6 @@ body {
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45) !important;
 }
 
-/* Favorito normal */
 .boton-favorito {
     background: rgba(56, 189, 248, 0.1);
     color: var(--cyan);
@@ -292,7 +290,6 @@ body {
     transform: scale(1.04);
 }
 
-/* Favorito activo */
 .boton-favorito.es-favorito,
 .acciones-tarjeta .boton-detalle.es-favorito {
     background: linear-gradient(45deg, var(--gold), #d97706) !important;
@@ -307,7 +304,6 @@ body {
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5) !important;
 }
 
-/* Quitar favorito (página Favorites) */
 .boton-eliminar-favorito {
     background: rgba(239, 68, 68, 0.15) !important;
     color: #f87171 !important;
@@ -321,7 +317,6 @@ body {
     box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3) !important;
 }
 
-/* Botón primario genérico */
 .boton-primario {
     background: var(--blue-main);
     color: white;
@@ -335,7 +330,6 @@ body {
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* ── Paginación ──────────────────────────────────────────── */
 .paginacion {
     display: flex;
     justify-content: center;
@@ -382,7 +376,6 @@ body {
     font-family: 'Space Grotesk', sans-serif;
 }
 
-/* ── Filtros ─────────────────────────────────────────────── */
 .filtros-genero {
     display: flex;
     justify-content: center;
@@ -410,7 +403,7 @@ body {
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
 }
 
-/* ── Spinner / Error ─────────────────────────────────────── */
+
 .spinner {
     display: flex;
     flex-direction: column;
