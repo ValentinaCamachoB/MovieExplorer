@@ -39,3 +39,11 @@ export function agregarAlHistorial(terminoBuscado) {
     if (lista.length > 10) lista = lista.slice(0, 10);
     guardarEnStorage(CLAVE_HISTORIAL, lista);
 }
+
+export function guardarElementosPorPagina(cantidad) {
+    guardarEnStorage(CLAVE_ITEMS_POR_PAG, cantidad);
+}
+
+export function obtenerElementosPorPagina() {
+    return leerDeStorage(CLAVE_ITEMS_POR_PAG) || 20;
+}
