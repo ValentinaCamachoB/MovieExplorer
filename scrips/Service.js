@@ -28,3 +28,14 @@ export async function buscarSeriesPorNombre(textoBuscado) {
     const soloLasSeries = resultados.map((resultado) => resultado.show);
     return soloLasSeries;
 }
+
+export async function obtenerDetalleSerie(idSerie) {
+    const respuesta = await fetch(`${DIRECCION_BASE_API}/shows/${idSerie}`);
+ 
+    if (!respuesta.ok) {
+        throw new Error(`No se encontró la serie con id ${idSerie}.`);
+    }
+ 
+    const datosCompletos = await respuesta.json();
+    return datosCompletos;
+}
