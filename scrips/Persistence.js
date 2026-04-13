@@ -26,3 +26,16 @@ export function esFavorito(idSerie) {
     const listaFavoritos = obtenerFavoritos();
     return listaFavoritos.some(f => f.id === idSerie);
 }
+
+export function obtenerHistorial() {
+    return leerDeStorage(CLAVE_HISTORIAL) || [];
+}
+
+export function agregarAlHistorial(terminoBuscado) {
+    if (!terminoBuscado || terminoBuscado.trim() === "") return;
+    let lista = obtenerHistorial();
+    lista = lista.filter(b => b.toLowerCase() !== terminoBuscado.toLowerCase());
+    lista.unshift(terminoBuscado.trim());
+    if (lista.length > 10) lista = lista.slice(0, 10);
+    guardarEnStorage(CLAVE_HISTORIAL, lista);
+}
