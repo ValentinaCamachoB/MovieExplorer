@@ -26,3 +26,36 @@ async function cargarSeriesIniciales() {
         console.error("Error al cargar series:", error);
     }
 }
+
+async function ejecutarBusqueda(textoBuscado) {
+    if (!textoBuscado || textoBuscado.trim() === "") return;
+ 
+    try {
+        mostrarCarga();
+        ocultarError();
+ 
+        agregarAlHistorial(textoBuscado);
+        renderizarHistorialDeBusquedas(obtenerHistorial());
+ 
+        const resultados = await buscarSeriesPorNombre(textoBuscado);
+ 
+        establecerEstado("series", resultados);
+        establecerEstado("paginaActual", 1);
+        establecerEstado("terminoDeBusqueda", textoBuscado);
+        establecerEstado("generoSeleccionado", "Todos");
+ 
+        renderizarFiltrosDeGenero(resultados);
+        marcarFiltroActivo("Todos");
+ 
+        ocultarCarga();
+        mostrarPaginaActual();
+ 
+        // Mostrar botón para volver a ver todas las series
+        mostrarBotonVolver();
+ 
+    } catch (error) {
+        ocultarCarga();
+        mostrarError("Hubo un error al buscar. Intenta de nuevo.");
+        console.error("Error al buscar:", error);
+    }
+}
