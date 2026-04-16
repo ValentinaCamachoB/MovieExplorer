@@ -13,3 +13,7 @@ export function mostrarError(mensaje) {
 export function ocultarError() {
     console.log("Ocultando error");
 }
+
+export function crearTarjetaDeSerie(serie) {
+    return `<div>${serie.nombre}</div>`;
+}
