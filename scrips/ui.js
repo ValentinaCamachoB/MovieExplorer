@@ -5,3 +5,11 @@ export function mostrarSpinner() {
 export function ocultarSpinner() {
     console.log("Ocultando spinner...");
 }
+
+export function mostrarError(mensaje) {
+    console.error(mensaje);
+}
+
+export function ocultarError() {
+    console.log("Ocultando error");
+}
