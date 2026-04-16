@@ -17,3 +17,7 @@ export function ocultarError() {
 export function crearTarjetaDeSerie(serie) {
     return `<div>${serie.nombre}</div>`;
 }
+
+export function renderizarSeries(series) {
+    console.log("Renderizando series", series);
+}
