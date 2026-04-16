@@ -77,6 +77,100 @@ function mostrarBotonVolver() {
     document.querySelector(".hero").appendChild(boton);
 }
 
+function registrarEventos() {
+ 
+    const botonBuscar = document.getElementById("botonBuscar");
+    const campoBuscar = document.getElementById("campoBusqueda");
+ 
+    // Clic en "Buscar"
+    botonBuscar.addEventListener("click", () => {
+        ejecutarBusqueda(campoBuscar.value);
+    });
+ 
+    // Presionar Enter en el buscador
+    campoBuscar.addEventListener("keydown", (evento) => {
+        if (evento.key === "Enter") {
+            ejecutarBusqueda(campoBuscar.value);
+        }
+    });
+ 
+    // Clic en una búsqueda del historial
+    document.getElementById("historialBusquedas").addEventListener("click", (evento) => {
+        const item = evento.target.closest("li");
+        if (!item) return;
+        campoBuscar.value = item.dataset.termino;
+        ejecutarBusqueda(item.dataset.termino);
+    });
+ 
+    // Cambiar cantidad por página
+    document.getElementById("selectorCantidad").addEventListener("change", (evento) => {
+        const cantidad = Number(evento.target.value);
+        establecerEstado("elementosPorPagina", cantidad);
+        establecerEstado("paginaActual", 1);
+        guardarElementosPorPagina(cantidad);
+        mostrarPaginaActual();
+    });
+ 
+    // Botón ← Anterior
+    document.getElementById("botonAnterior").addEventListener("click", () => {
+        const pagina = obtenerEstado("paginaActual");
+        if (pagina > 1) {
+            establecerEstado("paginaActual", pagina - 1);
+            mostrarPaginaActual();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    });
+ 
+    // Botón Siguiente →
+    document.getElementById("botonSiguiente").addEventListener("click", () => {
+        const pagina         = obtenerEstado("paginaActual");
+        const cantidad       = obtenerEstado("elementosPorPagina");
+        const genero         = obtenerEstado("generoSeleccionado");
+        let   series         = obtenerEstado("series");
+ 
+        if (genero && genero !== "Todos") {
+            series = series.filter((s) => s.genres && s.genres.includes(genero));
+        }
+ 
+        const total = Math.ceil(series.length / cantidad) || 1;
+        if (pagina < total) {
+            establecerEstado("paginaActual", pagina + 1);
+            mostrarPaginaActual();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    });
+ 
+    // Filtros de género (delegación de eventos)
+    document.getElementById("filtrosGenero").addEventListener("click", (evento) => {
+        const boton = evento.target.closest(".boton-genero");
+        if (!boton) return;
+        const genero = boton.dataset.genero;
+        establecerEstado("generoSeleccionado", genero);
+        establecerEstado("paginaActual", 1);
+        marcarFiltroActivo(genero);
+        mostrarPaginaActual();
+    });
+ 
+    // Botones favorito en las tarjetas (delegación de eventos)
+    document.getElementById("contenedorSeries").addEventListener("click", (evento) => {
+        const boton = evento.target.closest(".boton-favorito");
+        if (!boton) return;
+ 
+        const idSerie = Number(boton.dataset.id);
+ 
+        if (esFavorito(idSerie)) {
+            eliminarFavorito(idSerie);
+            actualizarBotonFavorito(idSerie, false);
+        } else {
+            const serie = obtenerEstado("series").find((s) => s.id === idSerie);
+            if (serie) {
+                agregarFavorito(serie);
+                actualizarBotonFavorito(idSerie, true);
+            }
+        }
+    });
+}
+
 async function iniciarAplicacion() {
     // Recuperar configuración guardada
     const cantidad = obtenerElementosPorPagina();
@@ -89,7 +183,7 @@ async function iniciarAplicacion() {
     // Registrar eventos
     registrarEventos();
  
-    // Cargar series
+
     await cargarSeriesIniciales();
 }
  
