@@ -1,3 +1,5 @@
+import { esFavorito } from "./Persistence.js";
+
 export function mostrarSpinner() {
     console.log("Mostrando spinner...");
 }
