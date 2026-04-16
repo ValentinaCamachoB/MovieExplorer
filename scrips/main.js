@@ -59,3 +59,20 @@ async function ejecutarBusqueda(textoBuscado) {
         console.error("Error al buscar:", error);
     }
 }
+
+function mostrarBotonVolver() {
+    if (document.getElementById("botonVolverInicio")) return;
+ 
+    const boton = document.createElement("button");
+    boton.id = "botonVolverInicio";
+    boton.textContent = "VER TODO";
+    boton.className = "boton-volver-inicio";
+ 
+    boton.addEventListener("click", () => {
+        document.getElementById("campoBusqueda").value = "";
+        boton.remove();
+        cargarSeriesIniciales();
+    });
+ 
+    document.querySelector(".hero").appendChild(boton);
+}
