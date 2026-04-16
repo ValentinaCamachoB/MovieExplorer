@@ -25,3 +25,7 @@ export function renderizarSeries(series) {
 export function actualizarBotonFavorito() {
     console.log("Actualizando botón favorito");
 }
+
+export function mostrarHistorial() {
+    console.log("Mostrando historial");
+}
