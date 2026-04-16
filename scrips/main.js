@@ -76,3 +76,21 @@ function mostrarBotonVolver() {
  
     document.querySelector(".hero").appendChild(boton);
 }
+
+async function iniciarAplicacion() {
+    // Recuperar configuración guardada
+    const cantidad = obtenerElementosPorPagina();
+    establecerEstado("elementosPorPagina", cantidad);
+    document.getElementById("selectorCantidad").value = cantidad;
+ 
+    // Mostrar historial guardado
+    renderizarHistorialDeBusquedas(obtenerHistorial());
+ 
+    // Registrar eventos
+    registrarEventos();
+ 
+    // Cargar series
+    await cargarSeriesIniciales();
+}
+ 
+iniciarAplicacion();
