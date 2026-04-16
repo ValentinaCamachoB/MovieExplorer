@@ -21,3 +21,7 @@ export function crearTarjetaDeSerie(serie) {
 export function renderizarSeries(series) {
     console.log("Renderizando series", series);
 }
+
+export function actualizarBotonFavorito() {
+    console.log("Actualizando botón favorito");
+}
