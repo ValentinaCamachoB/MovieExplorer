@@ -14,7 +14,7 @@ function mostrarPaginaActual() {
     actualizarPaginacion(numeroPagina, totalDePaginas);
 }
 
-// Botón ← Anterior
+
 document.getElementById("botonAnterior").addEventListener("click", () => {
     const pagina = obtenerEstado("paginaActual");
 
@@ -38,4 +38,14 @@ document.getElementById("botonSiguiente").addEventListener("click", () => {
         mostrarPaginaActual();
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
+});
+
+document.getElementById("selectorCantidad").addEventListener("change", (evento) => {
+    const cantidad = Number(evento.target.value);
+
+    establecerEstado("elementosPorPagina", cantidad);
+    establecerEstado("paginaActual", 1);
+
+    guardarElementosPorPagina(cantidad);
+    mostrarPaginaActual();
 });
