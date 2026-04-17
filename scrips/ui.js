@@ -22,3 +22,13 @@ export function renderizarFiltrosDeGenero(listaDeSeries) {
         contenedorFiltros.appendChild(boton);
     });
 }
+
+export function marcarFiltroActivo(generoActivo) {
+    document.querySelectorAll(".boton-genero").forEach((boton) => {
+        if (boton.dataset.genero === generoActivo) {
+            boton.classList.add("activo");
+        } else {
+            boton.classList.remove("activo");
+        }
+    });
+}
