@@ -59,3 +59,32 @@ function mostrarDetalleSerie(serie) {
         }
     });
 }
+
+async function iniciarPaginaDetalle() {
+    const parametrosURL = new URLSearchParams(window.location.search);
+    const idDeLaSerie   = parametrosURL.get("id");
+
+    if (!idDeLaSerie) {
+        const error = document.getElementById("mensajeError");
+        error.textContent = "No se especificó ninguna serie en la URL.";
+        error.classList.remove("oculto");
+        return;
+    }
+
+    try {
+        document.getElementById("spinner").classList.remove("oculto");
+        const datosDelaSerie = await obtenerDetalleSerie(idDeLaSerie);
+        document.getElementById("spinner").classList.add("oculto");
+        mostrarDetalleSerie(datosDelaSerie);
+        document.title = `${datosDelaSerie.name} — Movie Explorer`;
+
+    } catch (error) {
+        document.getElementById("spinner").classList.add("oculto");
+        const mensajeError = document.getElementById("mensajeError");
+        mensajeError.textContent = "No se pudo cargar la serie. Intenta de nuevo.";
+        mensajeError.classList.remove("oculto");
+        console.error("Error al cargar detalle:", error);
+    }
+}
+
+iniciarPaginaDetalle();
