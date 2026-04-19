@@ -46,3 +46,14 @@ function mostrarFavoritos() {
         contenedor.appendChild(tarjeta);
     });
 }
+
+function registrarEventos() {
+    document.getElementById("contenedorFavoritos").addEventListener("click", (evento) => {
+        const boton = evento.target.closest(".boton-eliminar-favorito");
+        if (!boton) return;
+
+        const idAEliminar = Number(boton.dataset.id);
+        eliminarFavorito(idAEliminar);
+        mostrarFavoritos();
+    });
+}
