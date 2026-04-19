@@ -24,7 +24,6 @@ function mostrarDetalleSerie(serie) {
         ${htmlImagen}
         <div class="informacion-detalle">
             <h1 class="titulo-detalle">${serie.name}</h1>
-
             <div class="seccion-info">
                 <h3>Información Detallada:</h3>
                 <div class="etiquetas-detalle">
@@ -37,15 +36,26 @@ function mostrarDetalleSerie(serie) {
                     <span class="etiqueta"> <strong>Red:</strong> ${serie.network?.name || "N/A"}</span>
                 </div>
             </div>
-
             <div class="seccion-resumen">
                 <h3> Resumen:</h3>
                 <div class="resumen-detalle">${resumen}</div>
             </div>
-
             <button id="botonFavoritoDetalle" class="boton-primario ${yaEsFavorita ? "es-favorito" : ""}">
                 ${yaEsFavorita ? "❤ Quitar de favoritos" : "♡ Agregar a favoritos"}
             </button>
         </div>
     `;
+
+    document.getElementById("botonFavoritoDetalle").addEventListener("click", () => {
+        const boton = document.getElementById("botonFavoritoDetalle");
+        if (esFavorito(serie.id)) {
+            eliminarFavorito(serie.id);
+            boton.innerHTML = "♡ Agregar a favoritos";
+            boton.classList.remove("es-favorito");
+        } else {
+            agregarFavorito(serie);
+            boton.innerHTML = " ❤ Quitar de favoritos";
+            boton.classList.add("es-favorito");
+        }
+    });
 }
