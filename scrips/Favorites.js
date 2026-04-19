@@ -5,6 +5,12 @@ function mostrarFavoritos() {
     const contenedor       = document.getElementById("contenedorFavoritos");
     const mensajeVacio     = document.getElementById("mensajeListaVacia");
 
+    if (!listaFavoritos || listaFavoritos.length === 0) {
+        contenedor.innerHTML = "";
+        mensajeVacio.classList.remove("oculto");
+        return;
+    }
+
     mensajeVacio.classList.add("oculto");
     contenedor.innerHTML = "";
 
