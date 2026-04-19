@@ -57,3 +57,10 @@ function registrarEventos() {
         mostrarFavoritos();
     });
 }
+
+function iniciarPaginaFavoritos() {
+    registrarEventos();
+    mostrarFavoritos();
+}
+
+iniciarPaginaFavoritos();
