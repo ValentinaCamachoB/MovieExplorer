@@ -1,11 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+     <script src="scripts/main.js" type="module"></script>
 </head>
+
 <body>
-    
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">MovieExplorer</a>
+        <div class="enlaces-nav">
+            <a href="index.html" class="activo">Inicio</a>
+            <a href="Favorites.html">❤ Favoritos</a>
+        </div>
+    </nav>
+
+    < <header class="hero">
+        <h1 class="titulo-hero">Explora tus series favoritas</h1>
+        <div class="caja-busqueda">
+            <input type="text" id="campoBusqueda" placeholder="Buscar serie o película..." />
+            <button id="botonBuscar">Buscar</button>
+        </div>
+
+        <div id="historialBusquedas" class="historial-busquedas oculto"></div>
+        </header>
+
+
+        <section class="seccion-filtros">
+            <div class="contenedor">
+                <p class="etiqueta-filtros">Filtrar por género:</p>
+                <div id="filtrosGenero" class="filtros-genero">
+                    <button class="boton-genero activo" data-genero="Todos">Todos</button>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="seccion-cantidad">
+            <div class="contenedor">
+                <label for="selectorCantidad">Mostrar por página:</label>
+                <select id="selectorCantidad">
+                    <option value="10">10</option>
+                    <option value="20" selected>20</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </section>
+
+        < <div id="spinner" class="spinner oculto">
+            <div class="circulo-spinner"></div>
+            <p>Cargando series...</p>
+            </div>
+
+
+            <p id="mensajeError" class="mensaje-error oculto"></p>
+
+
+            <main class="contenedor">
+                <div id="contenedorSeries" class="grilla-series"></div>
+            </main>
+
+
+            <div id="paginacion" class="paginacion oculto">
+                <button id="botonAnterior">← Anterior</button>
+                <span id="indicadorPagina">Página 1</span>
+                <button id="botonSiguiente">Siguiente →</button>
+            </div>
+
+
+            <footer class="pie-pagina">
+                <p>Usando la API de TVMaze</p>
+            </footer>
+
+
 </body>
+
 </html>
