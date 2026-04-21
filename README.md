@@ -2,9 +2,9 @@
 Aplicación web para explorar series usando la API de TVMaze.
  
  Integrantes
-- Nombre Dev 1 — Estructura, API y búsqueda
-- Nombre Dev 2 — Estado, UI, paginación y filtros
-- Nombre Dev 3 — Favoritos y detalle de serie
+- Nombre VALENTINA — Estructura, API y búsqueda
+- Nombre YANDER — Estado, UI, paginación y filtros
+- Nombre JEAN — Favoritos y detalle de serie
  
  Funcionalidades
 - Listado de series desde TVMaze con paginación
